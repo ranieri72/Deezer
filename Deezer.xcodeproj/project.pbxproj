@@ -8,22 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		48021AEA21651C0300A6F8F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48021AE921651C0300A6F8F6 /* AppDelegate.swift */; };
-		48021AEC21651C0300A6F8F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48021AEB21651C0300A6F8F6 /* ViewController.swift */; };
-		48021AEF21651C0300A6F8F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48021AED21651C0300A6F8F6 /* Main.storyboard */; };
 		48021AF221651C0300A6F8F6 /* Deezer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 48021AF021651C0300A6F8F6 /* Deezer.xcdatamodeld */; };
 		48021AF421651C1100A6F8F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48021AF321651C1100A6F8F6 /* Assets.xcassets */; };
-		48021AF721651C1100A6F8F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48021AF521651C1100A6F8F6 /* LaunchScreen.storyboard */; };
+		48021B0021652A7200A6F8F6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48021AFE21652A7200A6F8F6 /* MainViewController.swift */; };
+		48021B0121652A7200A6F8F6 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48021AFF21652A7200A6F8F6 /* MainViewController.xib */; };
+		48021B0421653C0300A6F8F6 /* ArtistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48021B0221653C0300A6F8F6 /* ArtistCollectionViewCell.swift */; };
+		48021B0521653C0300A6F8F6 /* ArtistCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48021B0321653C0300A6F8F6 /* ArtistCollectionViewCell.xib */; };
+		48021B082165472700A6F8F6 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48021B072165472700A6F8F6 /* Artist.swift */; };
+		482DE0C421681CF8004B5512 /* GenreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482DE0C221681CF8004B5512 /* GenreTableViewCell.swift */; };
+		482DE0C521681CF8004B5512 /* GenreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 482DE0C321681CF8004B5512 /* GenreTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		48021AE621651C0300A6F8F6 /* Deezer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Deezer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48021AE921651C0300A6F8F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		48021AEB21651C0300A6F8F6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		48021AEE21651C0300A6F8F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		48021AF121651C0300A6F8F6 /* Deezer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Deezer.xcdatamodel; sourceTree = "<group>"; };
 		48021AF321651C1100A6F8F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		48021AF621651C1100A6F8F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		48021AF821651C1100A6F8F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48021AFE21652A7200A6F8F6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		48021AFF21652A7200A6F8F6 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		48021B0221653C0300A6F8F6 /* ArtistCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistCollectionViewCell.swift; sourceTree = "<group>"; };
+		48021B0321653C0300A6F8F6 /* ArtistCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistCollectionViewCell.xib; sourceTree = "<group>"; };
+		48021B072165472700A6F8F6 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		482DE0C221681CF8004B5512 /* GenreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreTableViewCell.swift; sourceTree = "<group>"; };
+		482DE0C321681CF8004B5512 /* GenreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenreTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +64,27 @@
 		48021AE821651C0300A6F8F6 /* Deezer */ = {
 			isa = PBXGroup;
 			children = (
+				48021B062165463C00A6F8F6 /* Model */,
 				48021AE921651C0300A6F8F6 /* AppDelegate.swift */,
-				48021AEB21651C0300A6F8F6 /* ViewController.swift */,
-				48021AED21651C0300A6F8F6 /* Main.storyboard */,
 				48021AF321651C1100A6F8F6 /* Assets.xcassets */,
-				48021AF521651C1100A6F8F6 /* LaunchScreen.storyboard */,
 				48021AF821651C1100A6F8F6 /* Info.plist */,
 				48021AF021651C0300A6F8F6 /* Deezer.xcdatamodeld */,
+				48021AFE21652A7200A6F8F6 /* MainViewController.swift */,
+				48021AFF21652A7200A6F8F6 /* MainViewController.xib */,
+				48021B0221653C0300A6F8F6 /* ArtistCollectionViewCell.swift */,
+				48021B0321653C0300A6F8F6 /* ArtistCollectionViewCell.xib */,
+				482DE0C221681CF8004B5512 /* GenreTableViewCell.swift */,
+				482DE0C321681CF8004B5512 /* GenreTableViewCell.xib */,
 			);
 			path = Deezer;
+			sourceTree = "<group>";
+		};
+		48021B062165463C00A6F8F6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				48021B072165472700A6F8F6 /* Artist.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +145,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48021AF721651C1100A6F8F6 /* LaunchScreen.storyboard in Resources */,
+				48021B0521653C0300A6F8F6 /* ArtistCollectionViewCell.xib in Resources */,
 				48021AF421651C1100A6F8F6 /* Assets.xcassets in Resources */,
-				48021AEF21651C0300A6F8F6 /* Main.storyboard in Resources */,
+				48021B0121652A7200A6F8F6 /* MainViewController.xib in Resources */,
+				482DE0C521681CF8004B5512 /* GenreTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,32 +159,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48021AEC21651C0300A6F8F6 /* ViewController.swift in Sources */,
 				48021AF221651C0300A6F8F6 /* Deezer.xcdatamodeld in Sources */,
 				48021AEA21651C0300A6F8F6 /* AppDelegate.swift in Sources */,
+				48021B082165472700A6F8F6 /* Artist.swift in Sources */,
+				48021B0021652A7200A6F8F6 /* MainViewController.swift in Sources */,
+				48021B0421653C0300A6F8F6 /* ArtistCollectionViewCell.swift in Sources */,
+				482DE0C421681CF8004B5512 /* GenreTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		48021AED21651C0300A6F8F6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				48021AEE21651C0300A6F8F6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		48021AF521651C1100A6F8F6 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				48021AF621651C1100A6F8F6 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		48021AF921651C1100A6F8F6 /* Debug */ = {
@@ -287,7 +292,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XHWN5KMVUT;
 				INFOPLIST_FILE = Deezer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,7 +311,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XHWN5KMVUT;
 				INFOPLIST_FILE = Deezer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
