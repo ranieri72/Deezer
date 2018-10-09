@@ -18,7 +18,7 @@ class ArtistCollectionViewCell: UICollectionViewCell {
     }
     
     public func configure(artist: Artist) {
-        imageView.image = artist.logo
+        //imageView.image = artist.pictureUrl
         lbName.text = artist.name
     }
 }
