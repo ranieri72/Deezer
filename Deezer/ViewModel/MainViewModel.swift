@@ -18,27 +18,25 @@ class MainViewModel {
     
     var isLoading: Bool = false {
         didSet {
-            self.updateLoadingStatus?()
+            updateLoadingStatus?()
         }
     }
     
     var reloadTableViewClosure: (()->())?
     var updateLoadingStatus: (()->())?
     
-    func getNameOfSection( at section: Int ) -> String {
+    func titleForHeaderInSection(at section: Int) -> String {
         return listGenre.count > 0 ? listGenre[section].name! : "Gênero"
     }
     
-    func getCellViewModel( at indexPath: IndexPath ) -> [Artist]? {
-        if listGenre.count > 0 {
-            if let listArtists = listGenre[indexPath.section].listArtists {
-                return listArtists
-            }
+    func cellForItem(at indexPath: IndexPath) -> [Artist]? {
+        if listGenre.indices.contains(indexPath.row) {
+            return listGenre[indexPath.section].listArtists
         }
         return nil
     }
     
-    func requestListGenre(){
+    func requestListGenre() {
         Requester().requestListGenre(
             onStart: { () in
                 isLoading = true
@@ -55,7 +53,7 @@ class MainViewModel {
         )
     }
     
-    func requestListArtist(genre: Genre, index: Int){
+    func requestListArtist(genre: Genre, index: Int) {
         Requester().requestListArtist(
             genre: genre,
             onStart: { () in

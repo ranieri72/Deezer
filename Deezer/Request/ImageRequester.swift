@@ -20,9 +20,10 @@ class ImageRequester {
     
     func getImage(url: String, completion: @escaping ImageCompletion) {
         let imgView = UIImageView()
+        let placeHolder = UIImage(named: "account_circle_white_48pt")!
         guard let urlRequest = URL(string: url) else { return }
         
-        imgView.af_setImage(withURL: urlRequest, placeholderImage: nil, filter: nil, progress: nil, progressQueue: DispatchQueue.main, imageTransition: UIImageView.ImageTransition.noTransition, runImageTransitionIfCached: true){ (response) in
+        imgView.af_setImage(withURL: urlRequest, placeholderImage: placeHolder, filter: nil, progress: nil, progressQueue: DispatchQueue.main, imageTransition: UIImageView.ImageTransition.noTransition, runImageTransitionIfCached: true){ (response) in
             
             switch response.result {
             case .success(let value):

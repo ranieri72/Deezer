@@ -12,25 +12,44 @@ class GenreTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectio
     
     @IBOutlet weak var artistCollectionView: UICollectionView!
     
-    let placeHolder = UIImage(named: "account_circle_white_48pt")!
+    lazy var viewModel: GenreCellViewModel = {
+        return GenreCellViewModel()
+    }()
+    
     let cellIdentifier = "ArtistCollectionViewCell"
     var listArtist = [Artist]()
-    var listImages = [UIImage]()
-    var imageCount = 0
+    weak var delegate: GenreViewProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()
+
+        initView()
+        initVM()
+    }
+    
+    func initView() {
+        backgroundColor = Colors.primary
+        
         let nib = UINib.init(nibName: cellIdentifier, bundle: nil)
         artistCollectionView.register(nib, forCellWithReuseIdentifier: cellIdentifier)
         artistCollectionView.delegate = self
         artistCollectionView.dataSource = self
+        artistCollectionView.backgroundColor = Colors.primary
     }
     
-    func prepareCells(){
-        artistCollectionView.reloadData()
-        if let url = listArtist[0].pictureUrl {
-            loadImage(url: url)
+    func initVM() {
+        viewModel.reloadTableViewClosure = { [weak self] () in
+            DispatchQueue.main.async {
+                self?.artistCollectionView.reloadData()
+            }
         }
+    }
+    
+    func prepareCells() {
+        artistCollectionView.reloadData()
+        let url = listArtist[0].pictureMediumUrl
+        viewModel.listArtist = listArtist
+        viewModel.loadImage(url: url!, index: 0)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -51,12 +70,7 @@ class GenreTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectio
                 return ArtistCollectionViewCell()
         }
         if listArtist.indices.contains(indexPath.row) {
-            cell.lbName.text = listArtist[indexPath.row].name
-        }
-        if listImages.indices.contains(indexPath.row) {
-            cell.imageView.image = listImages[indexPath.row].af_imageRoundedIntoCircle()
-        } else {
-            cell.imageView.image = placeHolder
+            cell.configure(artist: listArtist[indexPath.row])
         }
         return cell
     }
@@ -65,29 +79,11 @@ class GenreTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectio
         return CGSize(width: 150, height: 200)
     }
     
-    fileprivate func loadImage(url: String) {
-        ImageRequester().getImage(url: url) { (response) in
-            
-            switch response {
-            case .success(let model):
-                self.listImages.append(model)
-                self.imageCount += 1
-                if self.listArtist.count > self.imageCount {
-                    self.loadImage(url: self.listArtist[self.imageCount].pictureUrl!)
-                } else {
-                    self.artistCollectionView.reloadData()
-                }
-            case .noConnection(let description):
-                print(description)
-            case .serverError(let description):
-                print(description)
-            case .timeOut(let description):
-                print(description)
-            case .downloadCanceled(_ ):
-                self.loadImage(url: url)
-            case .invalidResponse:
-                print("Invalid Response")
-            }
-        }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.didSelectArtist(artist: listArtist[indexPath.row])
     }
+}
+
+protocol GenreViewProtocol: class {
+    func didSelectArtist(artist: Artist)
 }

@@ -15,10 +15,11 @@ class ArtistCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        backgroundColor = Colors.primary
     }
     
     public func configure(artist: Artist) {
-        //imageView.image = artist.pictureUrl
+        imageView.image = artist.image?.af_imageRoundedIntoCircle()
         lbName.text = artist.name
     }
 }

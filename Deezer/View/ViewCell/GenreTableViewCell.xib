@@ -21,7 +21,6 @@
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="5Tn-Qd-AFS">
                         <rect key="frame" x="16" y="11" width="288" height="186"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MTk-3R-dPI">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -37,7 +36,6 @@
                     <constraint firstAttribute="trailingMargin" secondItem="5Tn-Qd-AFS" secondAttribute="trailing" id="j4l-LD-PS0"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="artistCollectionView" destination="5Tn-Qd-AFS" id="FOo-bW-bwS"/>

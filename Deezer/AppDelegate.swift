@@ -14,11 +14,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().barTintColor = Colors.primaryDark
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         let homeViewController = MainViewController(nibName: "MainViewController", bundle: nil)
-        //window!.rootViewController = homeViewController
         window!.rootViewController = UINavigationController(rootViewController: homeViewController)
         window!.makeKeyAndVisible()
         return true

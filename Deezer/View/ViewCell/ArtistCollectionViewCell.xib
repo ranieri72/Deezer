@@ -22,28 +22,27 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MWs-CR-ySL" userLabel="ContentView">
                         <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="account_circle_white_48pt" translatesAutoresizingMaskIntoConstraints="NO" id="hOs-b6-XeE">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="account_circle_white_48pt" translatesAutoresizingMaskIntoConstraints="NO" id="hOs-b6-XeE">
                                 <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="xNU-Yn-mgy"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9V-Nt-Ea6">
-                                <rect key="frame" x="10" y="150" width="130" height="50"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <rect key="frame" x="0.0" y="150" width="150" height="50"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="hOs-b6-XeE" firstAttribute="top" secondItem="MWs-CR-ySL" secondAttribute="top" id="FoW-fw-WGl"/>
                             <constraint firstItem="hOs-b6-XeE" firstAttribute="leading" secondItem="MWs-CR-ySL" secondAttribute="leading" id="H7K-gt-vqG"/>
                             <constraint firstAttribute="trailing" secondItem="hOs-b6-XeE" secondAttribute="trailing" id="KAp-rs-aKV"/>
-                            <constraint firstAttribute="trailing" secondItem="t9V-Nt-Ea6" secondAttribute="trailing" constant="10" id="YJr-Db-HN8"/>
+                            <constraint firstAttribute="trailing" secondItem="t9V-Nt-Ea6" secondAttribute="trailing" id="YJr-Db-HN8"/>
                             <constraint firstAttribute="bottom" secondItem="t9V-Nt-Ea6" secondAttribute="bottom" id="YaD-EO-oBP"/>
                             <constraint firstItem="t9V-Nt-Ea6" firstAttribute="top" secondItem="hOs-b6-XeE" secondAttribute="bottom" id="cDM-nb-LcV"/>
-                            <constraint firstItem="t9V-Nt-Ea6" firstAttribute="leading" secondItem="MWs-CR-ySL" secondAttribute="leading" constant="10" id="lyh-t3-MTC"/>
+                            <constraint firstItem="t9V-Nt-Ea6" firstAttribute="leading" secondItem="MWs-CR-ySL" secondAttribute="leading" id="lyh-t3-MTC"/>
                         </constraints>
                     </view>
                 </subviews>

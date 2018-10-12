@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, GenreViewProtocol {
     
     @IBOutlet weak var genreTableView: UITableView!
     
@@ -26,11 +26,17 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func initView() {
+        let appName = Bundle.main.infoDictionary![kCFBundleNameKey as String] as! String
+        title = appName
+        
+        view.backgroundColor = Colors.primary
+        
         let nib = UINib.init(nibName: cellIdentifier, bundle: nil)
         genreTableView.register(nib, forCellReuseIdentifier: cellIdentifier)
         genreTableView.dataSource = self
         genreTableView.delegate = self
         genreTableView.tableFooterView = UIView()
+        genreTableView.backgroundColor = Colors.primary
     }
     
     func initVM() {
@@ -50,8 +56,14 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         viewModel.requestListGenre()
     }
     
+    func didSelectArtist(artist: Artist) {
+        let artistView = ArtistViewController()
+        artistView.artist = artist
+        navigationController?.pushViewController(artistView, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return viewModel.getNameOfSection(at: section)
+        return viewModel.titleForHeaderInSection(at: section)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -76,9 +88,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             else {
                 return GenreTableViewCell()
         }
-        if let listArtists = viewModel.getCellViewModel(at: indexPath) {
-            print(String(format: "Request indexPath: %d, listArtist: %@ \n", indexPath.section, listArtists[0].name!))
+        if let listArtists = viewModel.cellForItem(at: indexPath) {
             cell.listArtist = listArtists
+            cell.delegate = self
             cell.prepareCells()
         }
         return cell
