@@ -165,7 +165,7 @@
             <constraints>
                 <constraint firstItem="YXt-2t-xPu" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Eej-6z-7Z4"/>
                 <constraint firstItem="RUG-Qj-o6x" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="qep-fi-gN1"/>
-                <constraint firstItem="YXt-2t-xPu" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="xcZ-oe-6Bm"/>
+                <constraint firstItem="YXt-2t-xPu" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="xcZ-oe-6Bm"/>
                 <constraint firstItem="YXt-2t-xPu" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="xgE-Pf-6v2"/>
                 <constraint firstItem="YXt-2t-xPu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="z0e-3T-Fge"/>
             </constraints>

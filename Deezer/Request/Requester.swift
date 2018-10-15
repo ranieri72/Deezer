@@ -108,6 +108,41 @@ class Requester {
         }
     }
     
+    func requestListArtist(artistSearched: String,
+                           onStart: () -> Void,
+                           onError: @escaping (String) -> Void,
+                           onSuccess: @escaping ([Artist]) -> Void) {
+        let newString = artistSearched.replacingOccurrences(of: " ", with: "%20")
+        
+        let url = String(format: "https://api.deezer.com/search/artist?q=%@", newString)
+        onStart();
+        
+        Alamofire.request(url, method: .get)
+            .validate()
+            .responseJSON { response in
+                
+                switch response.result {
+                case .success:
+                    if let data = response.result.value as? [String: Any] {
+                        
+                        if let jsonArray = data["data"] as? [[String : Any]] {
+                            var listArtist = [Artist]()
+                            print(String(format: "Request requestListArtist: %d - artistSearched: %@", jsonArray.count, artistSearched))
+                            
+                            for artist in jsonArray{
+                                listArtist.append(Artist(artist))
+                            }
+                            onSuccess(listArtist)
+                        }
+                    }
+                    
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    onError(error.localizedDescription);
+                }
+        }
+    }
+    
     func requestListAlbum(artist: Artist,
                            onStart: () -> Void,
                            onError: @escaping (String) -> Void,

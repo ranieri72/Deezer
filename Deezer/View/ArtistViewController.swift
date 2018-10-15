@@ -41,20 +41,22 @@ class ArtistViewController: UIViewController, UICollectionViewDelegate, UICollec
         view.backgroundColor = Colors.primary
         lbName.text = artist?.name
         
+        // buttons
         btnPlay.backgroundColor = Colors.accent
         btnPlay.layer.cornerRadius = 25
-        
         btnRadio.backgroundColor = UIColor.clear
         btnRadio.layer.cornerRadius = 25
         btnRadio.layer.borderColor = Colors.accent.cgColor
         btnRadio.layer.borderWidth = 1
         
+        // albumsCollectionView
         let nibAlbum = UINib.init(nibName: albumCellIdentifier, bundle: nil)
         albumsCollectionView.register(nibAlbum, forCellWithReuseIdentifier: albumCellIdentifier)
         albumsCollectionView.delegate = self
         albumsCollectionView.dataSource = self
         albumsCollectionView.backgroundColor = Colors.primary
         
+        // relatedCollectionView
         let nibArtist = UINib.init(nibName: artistCellIdentifier, bundle: nil)
         relatedCollectionView.register(nibArtist, forCellWithReuseIdentifier: artistCellIdentifier)
         relatedCollectionView.delegate = self

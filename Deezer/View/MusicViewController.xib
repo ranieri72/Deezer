@@ -27,10 +27,10 @@
                 </tableView>
             </subviews>
             <constraints>
-                <constraint firstItem="Qx2-0O-FhM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="I4h-49-R3n"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Qx2-0O-FhM" secondAttribute="trailing" id="NWz-Is-VVI"/>
-                <constraint firstItem="Qx2-0O-FhM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="b2A-DO-ePV"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Qx2-0O-FhM" secondAttribute="bottom" id="vru-tW-ZUU"/>
+                <constraint firstItem="Qx2-0O-FhM" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Cbn-A6-ogR"/>
+                <constraint firstAttribute="bottom" secondItem="Qx2-0O-FhM" secondAttribute="bottom" id="Dh3-e9-rjR"/>
+                <constraint firstItem="Qx2-0O-FhM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="SCF-yB-oe8"/>
+                <constraint firstItem="Qx2-0O-FhM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="xPU-lz-cCz"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>

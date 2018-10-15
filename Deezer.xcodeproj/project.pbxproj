@@ -36,6 +36,10 @@
 		4861A30021714052003FE134 /* GenreCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4861A2FF21714052003FE134 /* GenreCellViewModel.swift */; };
 		4865ECC0216CEAD0006AB87F /* ImageRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4865ECBF216CEAD0006AB87F /* ImageRequester.swift */; };
 		4865ECC4216D294A006AB87F /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4865ECC3216D294A006AB87F /* MainViewModel.swift */; };
+		4885FE0821727CCB000ED240 /* SearchArtistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4885FE0621727CCB000ED240 /* SearchArtistTableViewCell.swift */; };
+		4885FE0921727CCB000ED240 /* SearchArtistTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4885FE0721727CCB000ED240 /* SearchArtistTableViewCell.xib */; };
+		4885FE0B2172AC01000ED240 /* UISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4885FE0A2172AC01000ED240 /* UISearchBar.swift */; };
+		4885FE0D2172ADD2000ED240 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4885FE0C2172ADD2000ED240 /* UIImage.swift */; };
 		634B7C7C109D1020884A521F /* Pods_Deezer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBEA6C2FB964A594B77E527A /* Pods_Deezer.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +76,10 @@
 		4861A2FF21714052003FE134 /* GenreCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCellViewModel.swift; sourceTree = "<group>"; };
 		4865ECBF216CEAD0006AB87F /* ImageRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequester.swift; sourceTree = "<group>"; };
 		4865ECC3216D294A006AB87F /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		4885FE0621727CCB000ED240 /* SearchArtistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArtistTableViewCell.swift; sourceTree = "<group>"; };
+		4885FE0721727CCB000ED240 /* SearchArtistTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchArtistTableViewCell.xib; sourceTree = "<group>"; };
+		4885FE0A2172AC01000ED240 /* UISearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchBar.swift; sourceTree = "<group>"; };
+		4885FE0C2172ADD2000ED240 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		CBEA6C2FB964A594B77E527A /* Pods_Deezer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Deezer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF9D82C0393BD39712B151B1 /* Pods-Deezer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Deezer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Deezer/Pods-Deezer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -154,6 +162,8 @@
 				481568B3216E9ABA00B44861 /* AlbumCollectionViewCell.xib */,
 				481568BB216EBECF00B44861 /* MusicTableViewCell.swift */,
 				481568BC216EBECF00B44861 /* MusicTableViewCell.xib */,
+				4885FE0621727CCB000ED240 /* SearchArtistTableViewCell.swift */,
+				4885FE0721727CCB000ED240 /* SearchArtistTableViewCell.xib */,
 			);
 			path = ViewCell;
 			sourceTree = "<group>";
@@ -171,6 +181,8 @@
 			isa = PBXGroup;
 			children = (
 				4861A2F6216FF1A4003FE134 /* UIColor.swift */,
+				4885FE0A2172AC01000ED240 /* UISearchBar.swift */,
+				4885FE0C2172ADD2000ED240 /* UIImage.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -250,6 +262,11 @@
 				TargetAttributes = {
 					48021AE521651C0300A6F8F6 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -282,6 +299,7 @@
 				481568BE216EBECF00B44861 /* MusicTableViewCell.xib in Resources */,
 				481568AF216E443D00B44861 /* ArtistViewController.xib in Resources */,
 				481568B5216E9ABA00B44861 /* AlbumCollectionViewCell.xib in Resources */,
+				4885FE0921727CCB000ED240 /* SearchArtistTableViewCell.xib in Resources */,
 				481568BA216EBDBB00B44861 /* MusicViewController.xib in Resources */,
 				482DE0C521681CF8004B5512 /* GenreTableViewCell.xib in Resources */,
 			);
@@ -344,9 +362,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4861A2FE21713BD4003FE134 /* MusicViewModel.swift in Sources */,
+				4885FE0D2172ADD2000ED240 /* UIImage.swift in Sources */,
 				481568AE216E443D00B44861 /* ArtistViewController.swift in Sources */,
 				4861A2FA216FF6F2003FE134 /* Colors.swift in Sources */,
 				481568B4216E9ABA00B44861 /* AlbumCollectionViewCell.swift in Sources */,
+				4885FE0821727CCB000ED240 /* SearchArtistTableViewCell.swift in Sources */,
+				4885FE0B2172AC01000ED240 /* UISearchBar.swift in Sources */,
 				4865ECC0216CEAD0006AB87F /* ImageRequester.swift in Sources */,
 				48021AF221651C0300A6F8F6 /* Deezer.xcdatamodeld in Sources */,
 				4861A30021714052003FE134 /* GenreCellViewModel.swift in Sources */,
