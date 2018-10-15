@@ -29,16 +29,29 @@ class MainViewModel {
         }
     }
     
+    var pushView: ArtistViewController? {
+        didSet {
+            pushToView?()
+        }
+    }
+    
     var reloadGenreTableViewClosure: (()->())?
     var reloadSearchTableViewClosure: (()->())?
     var updateLoadingStatus: (()->())?
+    var pushToView: (()->())?
     
     func titleForHeaderInSection(at section: Int) -> String {
         return listGenre.count > 0 ? listGenre[section].name! : "Gênero"
     }
     
+    func didSelectItemAtSearchArtist(at indexPath: IndexPath) {
+        let artistView = ArtistViewController()
+        artistView.artist = listSearchedArtist[indexPath.row]
+        pushView = artistView
+    }
+    
     func cellForListArtist(at indexPath: IndexPath) -> [Artist]? {
-        if listGenre.indices.contains(indexPath.row) {
+        if listGenre.indices.contains(indexPath.section) {
             return listGenre[indexPath.section].listArtists
         }
         return nil
@@ -46,7 +59,7 @@ class MainViewModel {
     
     func cellForSearchArtist(at indexPath: IndexPath) -> Artist? {
         if listSearchedArtist.indices.contains(indexPath.row) {
-            return listSearchedArtist[indexPath.section]
+            return listSearchedArtist[indexPath.row]
         }
         return nil
     }
@@ -55,7 +68,14 @@ class MainViewModel {
         if searchText.count > 1 {
             stringArtist = searchText
             restartTimer()
+        } else if searchText.count == 0 {
+            cancelSearch()
         }
+    }
+    
+    func cancelSearch() {
+        listSearchedArtist = [Artist]()
+        reloadSearchTableViewClosure!()
     }
     
     func restartTimer(){

@@ -11,8 +11,7 @@ import UIKit
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, GenreViewProtocol {
     
     @IBOutlet weak var genreTableView: UITableView!
-    var searchTableView: UITableView!
-    var subView: UIView!
+    @IBOutlet var searchTableView: UITableView!
     var searchBar: UISearchBar!
     
     lazy var viewModel: MainViewModel = {
@@ -40,9 +39,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         view.backgroundColor = Colors.primary
         
-        let barHeight: CGFloat = UIApplication.shared.statusBarFrame.size.height
         let displayWidth: CGFloat = view.frame.width
-        let displayHeight: CGFloat = view.frame.height
         
         // searchBar
         searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: displayWidth * 0.58, height: 20))
@@ -70,15 +67,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         // searchTableView
         let nibSearch = UINib.init(nibName: searchCellIdentifier, bundle: nil)
-        searchTableView = UITableView(frame: CGRect(x: 0, y: barHeight, width: displayWidth, height: displayHeight - displayHeight))
         searchTableView.register(nibSearch, forCellReuseIdentifier: searchCellIdentifier)
         searchTableView.dataSource = self
         searchTableView.delegate = self
-        searchTableView.backgroundColor = UIColor.clear
-        
-        // subView
-        subView = UIView(frame: CGRect(x: 0, y: barHeight, width: displayWidth + displayWidth, height: displayHeight + displayHeight))
-        subView.backgroundColor = UIColor(white: 0, alpha: 0.9)
+        searchTableView.backgroundColor = UIColor(white: 0, alpha: 0.8)
     }
     
     func initVM() {
@@ -101,6 +93,14 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
         
+        viewModel.pushToView = { [weak self] () in
+            DispatchQueue.main.async {
+                if let pushView = self?.viewModel.pushView {
+                    self?.navigationController?.pushViewController(pushView, animated: true)
+                }
+            }
+        }
+        
         viewModel.requestListGenre()
     }
     
@@ -114,19 +114,52 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @objc func searchBarButtonAction() {
         title = ""
-        view.addSubview(subView)
         view.addSubview(searchTableView)
+        setupSearchTableConstraints()
         navigationItem.leftBarButtonItem = searchBarItem
         navigationItem.rightBarButtonItem = cancelBarButton
     }
     
     @objc func cancelBarButtonAction() {
+        viewModel.cancelSearch()
         title = appName
+        searchBar.text = ""
         dismissKeyboard()
         searchTableView.removeFromSuperview()
-        subView.removeFromSuperview()
         navigationItem.leftBarButtonItem = nil
         navigationItem.rightBarButtonItem = searchBarButton
+    }
+    
+    func setupSearchTableConstraints() {
+        let searchViewHorizontal = NSLayoutConstraint(item: searchTableView,
+                                                      attribute: NSLayoutConstraint.Attribute.centerX,
+                                                      relatedBy: NSLayoutConstraint.Relation.equal,
+                                                      toItem: view,
+                                                      attribute: NSLayoutConstraint.Attribute.centerX,
+                                                      multiplier: 1,
+                                                      constant: 0)
+        let searchViewVertical = NSLayoutConstraint(item: searchTableView,
+                                                    attribute: NSLayoutConstraint.Attribute.bottom,
+                                                    relatedBy: NSLayoutConstraint.Relation.equal,
+                                                    toItem: view,
+                                                    attribute: NSLayoutConstraint.Attribute.bottom,
+                                                    multiplier: 1,
+                                                    constant: 0)
+        let searchViewWidth = NSLayoutConstraint(item: searchTableView,
+                                                 attribute: NSLayoutConstraint.Attribute.width,
+                                                 relatedBy: NSLayoutConstraint.Relation.equal,
+                                                 toItem: view,
+                                                 attribute: NSLayoutConstraint.Attribute.width,
+                                                 multiplier: 1,
+                                                 constant: 0)
+        let searchViewHeight = NSLayoutConstraint(item: searchTableView,
+                                                  attribute: NSLayoutConstraint.Attribute.height,
+                                                  relatedBy: NSLayoutConstraint.Relation.equal,
+                                                  toItem: view,
+                                                  attribute: NSLayoutConstraint.Attribute.height,
+                                                  multiplier: 1,
+                                                  constant: 0)
+        view.addConstraints([searchViewHorizontal, searchViewVertical, searchViewWidth, searchViewHeight])
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -137,6 +170,13 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         let artistView = ArtistViewController()
         artistView.artist = artist
         navigationController?.pushViewController(artistView, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView == searchTableView {
+            viewModel.didSelectItemAtSearchArtist(at: indexPath)
+            cancelBarButtonAction()
+        }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -168,7 +208,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         if tableView == genreTableView {
             return 1
         } else {
-            return 10//viewModel.numberOfRowsSearchTable
+            return viewModel.numberOfRowsSearchTable
         }
     }
     

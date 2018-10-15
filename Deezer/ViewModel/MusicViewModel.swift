@@ -6,41 +6,19 @@
 //  Copyright © 2018 Ranieri. All rights reserved.
 //
 
-import AVFoundation
+import AVKit
 
 class MusicViewModel {
     
-    private var player: AVAudioPlayer?
+    private var player: AVPlayer?
     
     func audioPlayer(urlString: String) {
-        do {
-            player = try AVAudioPlayer(contentsOf: URL.init(string: urlString)!)
-            player?.prepareToPlay()
-            player?.numberOfLoops = 2
-            
-            do {
-                let audioSession = AVAudioSession.sharedInstance()
-                if #available(iOS 10.0, *) {
-                    try audioSession.setCategory(.playback, mode: .default, options: [.mixWithOthers, .allowAirPlay])
-                    play()
-                }
-            } catch { }
-        } catch { }
-    }
-    
-    func play() {
-        player?.play()
-    }
-    
-    func pause() {
-        if player?.isPlaying ?? false {
-            player?.pause()
+        guard let url = URL.init(string: urlString)
+            else {
+                return
         }
-    }
-    
-    func stop(){
-        if player?.isPlaying ?? false {
-            player?.stop()
-        }
+        let playerItem = AVPlayerItem.init(url: url)
+        player = AVPlayer.init(playerItem: playerItem)
+        player!.play()
     }
 }

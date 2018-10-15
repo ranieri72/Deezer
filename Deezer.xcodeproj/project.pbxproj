@@ -40,6 +40,7 @@
 		4885FE0921727CCB000ED240 /* SearchArtistTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4885FE0721727CCB000ED240 /* SearchArtistTableViewCell.xib */; };
 		4885FE0B2172AC01000ED240 /* UISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4885FE0A2172AC01000ED240 /* UISearchBar.swift */; };
 		4885FE0D2172ADD2000ED240 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4885FE0C2172ADD2000ED240 /* UIImage.swift */; };
+		48891CAA2174ED7C009D5EF5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48891CA92174ED7C009D5EF5 /* Images.xcassets */; };
 		634B7C7C109D1020884A521F /* Pods_Deezer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBEA6C2FB964A594B77E527A /* Pods_Deezer.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,7 @@
 		4885FE0721727CCB000ED240 /* SearchArtistTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchArtistTableViewCell.xib; sourceTree = "<group>"; };
 		4885FE0A2172AC01000ED240 /* UISearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchBar.swift; sourceTree = "<group>"; };
 		4885FE0C2172ADD2000ED240 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		48891CA92174ED7C009D5EF5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CBEA6C2FB964A594B77E527A /* Pods_Deezer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Deezer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF9D82C0393BD39712B151B1 /* Pods-Deezer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Deezer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Deezer/Pods-Deezer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,6 +138,7 @@
 				484E1814216BDF01000812DB /* Request */,
 				4865ECC1216D27EE006AB87F /* View */,
 				4865ECC2216D291F006AB87F /* ViewModel */,
+				48891CA92174ED7C009D5EF5 /* Images.xcassets */,
 			);
 			path = Deezer;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48021B0521653C0300A6F8F6 /* ArtistCollectionViewCell.xib in Resources */,
+				48891CAA2174ED7C009D5EF5 /* Images.xcassets in Resources */,
 				48021AF421651C1100A6F8F6 /* Assets.xcassets in Resources */,
 				48021B0121652A7200A6F8F6 /* MainViewController.xib in Resources */,
 				481568BE216EBECF00B44861 /* MusicTableViewCell.xib in Resources */,
@@ -512,6 +516,7 @@
 			baseConfigurationReference = DF9D82C0393BD39712B151B1 /* Pods-Deezer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XHWN5KMVUT;
 				INFOPLIST_FILE = Deezer/Info.plist;
@@ -532,6 +537,7 @@
 			baseConfigurationReference = 39DF23B6EAB9291010DBE5CE /* Pods-Deezer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XHWN5KMVUT;
 				INFOPLIST_FILE = Deezer/Info.plist;

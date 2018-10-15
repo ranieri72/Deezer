@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="Deezer" customModuleProvider="target">
             <connections>
                 <outlet property="genreTableView" destination="eTU-By-6Gh" id="8vv-hW-1EC"/>
+                <outlet property="searchTableView" destination="cxY-sY-Dfq" id="sMZ-b2-q2X"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="uph-8F-QnA"/>
             </connections>
         </placeholder>
@@ -35,5 +36,11 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="55.200000000000003" y="48.125937031484263"/>
         </view>
+        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cxY-sY-Dfq">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <point key="canvasLocation" x="55" y="683"/>
+        </tableView>
     </objects>
 </document>
